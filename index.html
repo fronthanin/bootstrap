@@ -2,60 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/@stackoverflow/stacks/dist/css/stacks.min.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.ico">
-  <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-
-  <title>ReUI Stacks | Coming soon</title>
-
-          <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168133760-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-168133760-1');
-</script>
-
+  <title>Ugliest To-Do</title>
+  <script type="text/javascript" src="https://sdk.userbase.com/1/userbase.js"></script>
 </head>
 
-<body class="grid grid__center bg-powder-050 fc-black-300">
-  
+<body>
+  <!-- Loading View -->
+  <div id="loading-view">Loading...</div>
 
-  <div class="grid ai-center sm:fd-column pt128 ">
+  <!-- Auth View -->
+  <div id="auth-view">
+    <h1>Login</h1>
+    <form id="login-form">
+      <input id="login-username" type="email" required placeholder="Email">
+      <input id="login-password" type="password" required placeholder="Password">
+      <input type="submit" value="Sign in">
+      <a id="forgot-password" style="cursor: pointer; font-style: italic; text-decoration: underline; color: blue;">
+        Forgot Password
+      </a>
+    </form>
+    <div id="login-error"></div>
 
-    <div class=" grid--cell mr24 sm:mr0">
-   
-         <svg aria-hidden="true" class="svg-spot spotEmptyXL sm:mt0" width="196" height="311" viewBox="0 0 199 199"><path opacity=".07" d="M35 177.5c-19.5-9-29.35-26.54-26-82 3.35-55.46 14.8-66.9 32.5-73 17.7-6.1 86.22-21.95 120 5.5s37.46 52.67 23 96.5c-14.46 43.84-22.26 63.24-60 61-37.74-2.24-70 1-89.5-8z"/><path opacity=".2" d="M42 48a4 4 0 014-4h112a7 7 0 017 7v23a7 7 0 01-7 7H49a7 7 0 01-7-7V48zm0 47a4 4 0 014-4h112a7 7 0 017 7v22a7 7 0 01-7 7H49a7 7 0 01-7-7V95zm-1 36h3.19a2 2 0 110 4H40a3 3 0 00-3 3v4.44a2 2 0 11-4 0V138a7 7 0 017-7h1zm11.65 2c0-1.1.9-2 2-2h8.37a2 2 0 110 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2h8.37a2 2 0 110 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2h8.38a2 2 0 110 4H92.3a2 2 0 01-2-2zm18.84 0c0-1.1.9-2 2-2h8.37a2 2 0 010 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2h8.37a2 2 0 010 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2H153a7 7 0 017 7v4.44a2 2 0 11-4 0v-4.58a3 3 0 00-3-2.86h-4.19a2 2 0 01-2-2zM35 151.56a2 2 0 012 2v4.51a3 3 0 003 2.93h4.19a2 2 0 110 4h-4.35a7 7 0 01-6.84-7v-4.44c0-1.1.9-2 2-2zm123 0a2 2 0 012 2v4.74a7 7 0 01-7 6.69h-4.19a2 2 0 110-4h4.33a3 3 0 002.86-3v-4.43c0-1.1.9-2 2-2zM52.65 163c0-1.1.9-2 2-2h8.37a2 2 0 110 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2h8.37a2 2 0 110 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2h8.38a2 2 0 110 4H92.3a2 2 0 01-2-2zm18.84 0c0-1.1.9-2 2-2h8.37a2 2 0 010 4h-8.37a2 2 0 01-2-2zm18.83 0c0-1.1.9-2 2-2h8.37a2 2 0 010 4h-8.37a2 2 0 01-2-2z"/><path d="M124.48 14.24L120.25 10 116 14.24l4.24 4.25 4.25-4.25zM52 58a4 4 0 100-8 4 4 0 000 8zm12-4c0-1.1.9-2 2-2h80a2 2 0 110 4H66a2 2 0 01-2-2zM33 42a7 7 0 017-7h113a7 7 0 017 7v26a7 7 0 01-7 7H40a7 7 0 01-7-7V42zm7-3a3 3 0 00-3 3v26a3 3 0 003 3h113a3 3 0 003-3V42a3 3 0 00-3-3H40zm16 62a4 4 0 11-8 0 4 4 0 018 0zm10-2a2 2 0 100 4h80a2 2 0 100-4H66zM40 81a7 7 0 00-7 7v27a7 7 0 007 7h113a7 7 0 007-7V88a7 7 0 00-7-7H40zm-3 7a3 3 0 013-3h113a3 3 0 013 3v27a3 3 0 01-3 3H40a3 3 0 01-3-3V88zm150.97 54.49L179.5 134l-8.49 8.49 8.49 8.48 8.48-8.48zm-8.48 2.82l-2.83-2.82 2.83-2.83 2.82 2.83-2.82 2.82zM8 97a2 2 0 012 2v4h4a2 2 0 110 4h-4v4a2 2 0 11-4 0v-4H2a2 2 0 110-4h4v-4c0-1.1.9-2 2-2z"/></svg>
-
-    </div>
-
-
-
-    <div class="grid--cell">
-
-     <h1 class="headline1"> 
-        <a class="s-link s-link__inherit">Coming August 2020</a>
-     </h1>
-
-
+    <h1>Create an account</h1>
+    <form id="signup-form">
+      <input id="signup-username" type="email" required placeholder="Email">
+      <input id="signup-password" type="password" required placeholder="Password">
+      <input type="submit" value="Create an account">
+    </form>
+    <div id="signup-error"></div>
   </div>
 
-  <div id="js-gdpr-consent-banner" class="p8 ff-sans ps-fixed b0 l0 r0 z-banner" role="banner">
+  <!-- To-dos View -->
+  <div id="todo-view">
+    <div id="username"></div>
+    <input type="button" value="Logout" id="logout-button">
+    <div id="logout-error"></div>
 
-<div class="wmx8 mx-auto grid grid__center" role="alertdialog">
-<p class="fc-black-500 fs-body1"> © Today // Designed and developed by  <span style="color: #405dcf;">Abdurahman Hanin.</span>   </p>
-</div>
+    <h1>To-Do List</h1>
+    <div id="todos"></div>
+    <div id="db-loading">Loading to-dos...</div>
+    <div id="db-error"></div>
 
-    
+    <form id="add-todo-form">
+      <input id="add-todo" type="text" required placeholder="To-Do">
+      <input type="submit" value="Add">
+    </form>
+    <div id="add-todo-error"></div>
+  </div>
 
-    
-     </div>
-    
-   
-   
+  <!-- application code -->
+  <script type="text/javascript">
+    userbase.init({ appId: '507612d6-3cd8-489d-9eb0-7c9f0a19411c' })
+      .then((session) => session.user ? showTodos(session.user.username) : showAuth())
+      .catch(() => showAuth())
+      .finally(() => document.getElementById('loading-view').style.display = 'none')
 
+    function handleLogin(e) {
+      e.preventDefault()
+
+      const username = document.getElementById('login-username').value
+      const password = document.getElementById('login-password').value
+
+      userbase.signIn({ username, password, rememberMe: 'local' })
+        .then((user) => showTodos(user.username))
+        .catch((e) => document.getElementById('login-error').innerHTML = e)
+    }
+
+    function handleSignUp(e) {
+      e.preventDefault()
+
+      const username = document.getElementById('signup-username').value
+      const password = document.getElementById('signup-password').value
+
+      userbase.signUp({ username, password, email: username, rememberMe: 'local' })
+        .then((user) => showTodos(user.username))
+        .catch((e) => document.getElementById('signup-error').innerHTML = e)
+    }
+
+    function handleLogout() {
+      userbase.signOut()
+        .then(() => showAuth())
+        .catch((e) => document.getElementById('logout-error').innerText = e)
+    }
+
+    function showTodos(username) {
+      document.getElementById('auth-view').style.display = 'none'
+      document.getElementById('todo-view').style.display = 'block'
+
+      // reset the todos view
+      document.getElementById('username').innerHTML = username
+      document.getElementById('todos').innerText = ''
+      document.getElementById('db-loading').style.display = 'block'
+      document.getElementById('db-error').innerText = ''
+
+      userbase.openDatabase({ databaseName: 'todos', changeHandler })
+        .catch((e) => document.getElementById('db-error').innerText = e)
+    }
+
+    function showAuth() {
+      document.getElementById('todo-view').style.display = 'none'
+      document.getElementById('auth-view').style.display = 'block'
+      document.getElementById('login-username').value = ''
+      document.getElementById('login-password').value = ''
+      document.getElementById('login-error').innerText = ''
+      document.getElementById('signup-username').value = ''
+      document.getElementById('signup-password').value = ''
+      document.getElementById('signup-error').innerText = ''
+    }
+
+    function changeHandler(items) {
+      document.getElementById('db-loading').style.display = 'none'
+
+      const todosList = document.getElementById('todos')
+
+      if (items.length === 0) {
+        todosList.innerText = 'Empty'
+      } else {
+        // clear the list
+        todosList.innerHTML = ''
+
+        // render all the to-do items
+        for (let i = 0; i < items.length; i++) {
+
+          // build the todo delete button
+          const todoDelete = document.createElement('button')
+          todoDelete.innerHTML = 'X'
+          todoDelete.style.display = 'inline-block'
+          todoDelete.onclick = () => {
+            userbase.deleteItem({ databaseName: 'todos', itemId: items[i].itemId })
+              .catch((e) => document.getElementById('add-todo-error').innerHTML = e)
+          }
+
+          // build the todo checkbox
+          const todoBox = document.createElement('input')
+          todoBox.type = 'checkbox'
+          todoBox.id = items[i].itemId
+          todoBox.checked = items[i].item.complete ? true : false
+          todoBox.onclick = (e) => {
+            e.preventDefault()
+            userbase.updateItem({ databaseName: 'todos', itemId: items[i].itemId, item: {
+              'todo': items[i].item.todo,
+              'complete': !items[i].item.complete
+            }})
+            .catch((e) => document.getElementById('add-todo-error').innerHTML = e)
+          }
+
+          // build the todo label
+          const todoLabel = document.createElement('label')
+          todoLabel.innerHTML = items[i].item.todo
+          todoLabel.style.textDecoration = items[i].item.complete ? 'line-through' : 'none'
+
+          // append the todo item to the list
+          const todoItem = document.createElement('div')
+          todoItem.appendChild(todoDelete)
+          todoItem.appendChild(todoBox)
+          todoItem.appendChild(todoLabel)
+          todosList.appendChild(todoItem)
+        }
+      }
+    }
+
+    function handleForgotPassword() {
+      const username = document.getElementById('login-username').value
+      document.getElementById('login-error').innerHTML = ''
+
+      userbase.forgotPassword({ username })
+        .then(() => window.alert('Check your email!'))
+        .catch((e) => 
+          document.getElementById('login-error').innerHTML = 
+            e.name === 'UsernameCannotBeBlank' ? 'Enter your email in the email field.' : e
+        )
+    }
+
+    function addTodoHandler(e) {
+      e.preventDefault()
+
+      const todo = document.getElementById('add-todo').value
+
+      userbase.insertItem({ databaseName: 'todos', item: { 'todo': todo }})
+        .then(() => document.getElementById('add-todo').value = '')
+        .catch((e) => document.getElementById('add-todo-error').innerHTML = e)
+    }
+
+    document.getElementById('forgot-password').addEventListener('click', handleForgotPassword)
+    document.getElementById('login-form').addEventListener('submit', handleLogin)
+    document.getElementById('signup-form').addEventListener('submit', handleSignUp)
+    document.getElementById('add-todo-form').addEventListener('submit', addTodoHandler)
+    document.getElementById('logout-button').addEventListener('click', handleLogout)
+
+    document.getElementById('todo-view').style.display = 'none'
+    document.getElementById('auth-view').style.display = 'none'
+
+  </script>
 </body>
 </html>
